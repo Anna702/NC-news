@@ -14,7 +14,6 @@ const Articles = () => {
       setIsLoading(true);
       getArticles(article_id).then((articles) => {
         setArticles(articles);
-
         setIsLoading(false);
       });
     },
@@ -24,7 +23,6 @@ const Articles = () => {
   return (
     <main>
       <h2 id="articles_header">Articles</h2>
-
       {isLoading ? (
         <p>Loading...</p>
       ) : (

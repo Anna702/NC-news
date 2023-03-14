@@ -1,10 +1,8 @@
 import "./App.css";
 import ArticleCard from "./components/ArticleCard";
 import Articles from "./components/Articles";
-import Comments from "./components/Comments";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import PostAComment from "./components/PostAComment";
 import SelectAuthor from "./components/SelectAuthor";
 import SelectTopic from "./components/SelectTopic";
 import Users from "./components/Users";
