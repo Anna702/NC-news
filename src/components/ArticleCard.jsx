@@ -1,9 +1,10 @@
 // import { useEffect } from "react";
 // import { useParams } from "react-router-dom";
 
-// const ArticleCard = ({ article }) => {
+// const ArticleCard = ({ xxx }) => {
 //   const { article_id } = useParams();
-//   const [article, setArticle] = useState("");
+//   const article = {};
+//   // const [article, setArticle] = useState("");
 
 //   //  useEffect(()=> {
 
