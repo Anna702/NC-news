@@ -9,7 +9,6 @@ import SelectAuthor from "./components/SelectAuthor";
 import SelectTopic from "./components/SelectTopic";
 import Users from "./components/Users";
 import { Route, Routes } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 function App() {
   return (
@@ -24,11 +23,6 @@ function App() {
         <Route path="/articles" element={<Articles />} />
         <Route path="/articles/:article_id" element={<ArticleCard />} />
       </Routes>
-      {/* <Users />
-      
-      <Comments />
-      <PostAComment /> */}
-      {/* <Footer /> */}
     </div>
   );
 }

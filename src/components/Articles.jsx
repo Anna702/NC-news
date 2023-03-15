@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticles } from "./api";
-import ArticleCard from "./ArticleCard";
+
 import { Link } from "react-router-dom";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
-  const [selectedValue, setSelectedValue] = useState("");
 
   useEffect(
     (article_id) => {
@@ -25,14 +24,7 @@ const Articles = () => {
   return (
     <main>
       <h2 id="articles_header">Articles</h2>
-      {/* <select
-        value={selectedValue}
-        onChange={(event) => setSelectedValue(event.target.value)}
-      >
-        {articles.map((article) => {
-          return <option key={article.article_id}>{article.title}</option>;
-        })}
-      </select> */}
+
       {isLoading ? (
         <p>Loading...</p>
       ) : (
@@ -70,7 +62,6 @@ const Articles = () => {
                 </div>
               </li>
             );
-            // return <ArticleCard article={article} />;
           })}
         </ul>
       )}
