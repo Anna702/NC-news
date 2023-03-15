@@ -1,6 +1,8 @@
 .App {
   background-color: #d2d6db;
   text-align: center;
+  padding-bottom: 15px;
+  padding-top: 1px;
 }
 
 .header {
@@ -8,6 +10,7 @@
   background-color: #a11232;
   color: aliceblue;
   font-weight: bolder;
+  border-radius: 4px;
 }
 
 .footer {
@@ -84,4 +87,42 @@
     font-size: large;
     padding-right: 15px;
   }
+}
+
+.card_article {
+  background-color: rgb(253, 254, 254);
+  margin: 15px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#card_article_card_img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15px;
+}
+
+#card_article_body {
+  text-align: justify;
+  padding: 10px;
+}
+
+#card_article_title {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+#card_article_card_topic,
+#card_article_card_author {
+  display: flex;
+  justify-content: flex-start;
+  margin: 3px;
 }

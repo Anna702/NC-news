@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "./api";
 import PostAComment from "./PostAComment";
 import Comments from "./Comments";
+import { Link } from "react-router-dom";
 
 const ArticleCard = () => {
   const { article_id } = useParams();
@@ -22,10 +23,18 @@ const ArticleCard = () => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <div>
+        <div className="card_article">
           <h2 id="card_article_title">{article.title}</h2>
-          <h4 id="card_article_card_topic">Topic: {article.topic}</h4>
-          <h4 id="card_article_card_author">Created by: {article.author}</h4>
+          <h4 id="card_article_card_topic">
+            Topic: &nbsp;
+            <Link to={"/articles?topic=" + article.topic}>{article.topic}</Link>
+          </h4>
+          <h4 id="card_article_card_author">
+            Created by:&nbsp;
+            <Link to={"/articles?author=" + article.author}>
+              {article.author}
+            </Link>
+          </h4>
           <img
             id="card_article_card_img"
             alt="article_cover"
