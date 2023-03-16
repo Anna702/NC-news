@@ -41,7 +41,6 @@ export const postComment = (article_id, newComment) => {
       body: newComment.body,
     })
     .then(({ data }) => {
-      console.log(data);
       return data.comment;
     });
 };
