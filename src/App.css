@@ -199,3 +199,28 @@
   border-radius: 5px;
   font-weight: bolder;
 }
+
+.comment_adder {
+  display: grid;
+  grid-template-areas:
+    "label_username input_username"
+    "label_textarea"
+    "newComment"
+    "button_new_comment";
+  grid-template-rows: 30px auto 40px;
+  grid-template-columns: 100px auto;
+  /* margin-right: 20px;
+  margin-bottom: 15px; */
+}
+
+/* .form_container {
+  display: flex;
+  flex-direction: column;
+} */
+
+#button_new_comment {
+  grid-column: 2;
+  border-radius: 8px;
+
+  margin-top: 10px;
+}
