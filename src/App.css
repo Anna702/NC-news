@@ -126,3 +126,62 @@
   justify-content: flex-start;
   margin: 3px;
 }
+
+.Comments {
+  display: flex;
+  flex-direction: column;
+  background-color: #768cac;
+  border-radius: 8px;
+}
+
+#comments_header {
+  color: aliceblue;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1px;
+}
+
+.comments_list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 15px;
+  justify-content: center;
+}
+
+.comment_one {
+  margin: 10px;
+  background-color: rgb(253, 254, 254);
+  border-radius: 8px;
+}
+
+#comment_author {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+#comment_added_at {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+#comments_votes {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 10px;
+  margin: 5px;
+}
+
+#comment_body {
+  text-align: justify;
+  padding: 12px;
+  padding-right: 25px;
+}

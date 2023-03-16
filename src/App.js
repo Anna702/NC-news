@@ -1,12 +1,11 @@
 import "./App.css";
 import ArticleCard from "./components/ArticleCard";
 import Articles from "./components/Articles";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import SelectAuthor from "./components/SelectAuthor";
 import SelectTopic from "./components/SelectTopic";
-import Users from "./components/Users";
 import { Route, Routes } from "react-router-dom";
+import Comments from "./components/Comments";
 
 function App() {
   return (
@@ -20,6 +19,7 @@ function App() {
         <Route path="/" element={<Articles />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/articles/:article_id" element={<ArticleCard />} />
+        <Route path="/articles/:article_id/comments" element={<Comments />} />
       </Routes>
     </div>
   );

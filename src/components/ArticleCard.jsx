@@ -23,25 +23,24 @@ const ArticleCard = () => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <div className="card_article">
-          <h2 id="card_article_title">{article.title}</h2>
-          <h4 id="card_article_card_topic">
-            Topic: &nbsp;
-            <Link to={"/articles?topic=" + article.topic}>{article.topic}</Link>
-          </h4>
-          <h4 id="card_article_card_author">
-            Created by:&nbsp;
-            <Link to={"/articles?author=" + article.author}>
+        <div>
+          <div className="card_article">
+            <h2 id="card_article_title">{article.title}</h2>
+            <h4 id="card_article_card_topic">
+              Topic: &nbsp;
+              {article.topic}
+            </h4>
+            <h4 id="card_article_card_author">
+              Created by:&nbsp;
               {article.author}
-            </Link>
-          </h4>
-          <img
-            id="card_article_card_img"
-            alt="article_cover"
-            src={article.article_img_url}
-          />
-          <p id="card_article_body">{article.body}</p>
-
+            </h4>
+            <img
+              id="card_article_card_img"
+              alt="article_cover"
+              src={article.article_img_url}
+            />
+            <p id="card_article_body">{article.body}</p>
+          </div>
           <PostAComment article_id={article.article_id} />
           <Comments article_id={article.article_id} />
         </div>
