@@ -3,12 +3,18 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "./api";
 import PostAComment from "./PostAComment";
 import Comments from "./Comments";
-import { Link } from "react-router-dom";
+import { voteForArticle } from "./api";
 
 const ArticleCard = () => {
   const { article_id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [article, setArticle] = useState({});
+
+  const onClick = () => {
+    voteForArticle(article.article_id).then((updatedArticle) => {
+      setArticle(updatedArticle);
+    });
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -40,6 +46,13 @@ const ArticleCard = () => {
               src={article.article_img_url}
             />
             <p id="card_article_body">{article.body}</p>
+            <h3 id="article_votes">
+              votes:&nbsp;
+              {article.votes}
+            </h3>
+            <button id="article_vote_button" onClick={onClick}>
+              Vote
+            </button>
           </div>
           <PostAComment article_id={article.article_id} />
           <Comments article_id={article.article_id} />
