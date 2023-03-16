@@ -9,8 +9,10 @@ const ArticleCard = () => {
   const { article_id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [article, setArticle] = useState({});
+  const [userVoted, setUserVoted] = useState(false);
 
   const onClick = () => {
+    setUserVoted(true);
     voteForArticle(article.article_id).then((updatedArticle) => {
       setArticle(updatedArticle);
     });
@@ -50,9 +52,13 @@ const ArticleCard = () => {
               votes:&nbsp;
               {article.votes}
             </h3>
-            <button id="article_vote_button" onClick={onClick}>
-              Vote
-            </button>
+            {userVoted === false ? (
+              <button id="article_vote_button" onClick={onClick}>
+                Vote
+              </button>
+            ) : (
+              <p>thanks for voting!</p>
+            )}
           </div>
           <PostAComment article_id={article.article_id} />
           <Comments article_id={article.article_id} />
