@@ -10,12 +10,19 @@ const ArticleCard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [article, setArticle] = useState({});
   const [userVoted, setUserVoted] = useState(false);
+  const [isVotingErr, setIsVotingErr] = useState(false);
 
   const onClick = () => {
+    setIsVotingErr(false);
     setUserVoted(true);
-    voteForArticle(article.article_id).then((updatedArticle) => {
-      setArticle(updatedArticle);
-    });
+    voteForArticle(article.article_id)
+      .then((updatedArticle) => {
+        setArticle(updatedArticle);
+      })
+      .catch(() => {
+        setIsVotingErr(true);
+        setUserVoted(false);
+      });
   };
 
   useEffect(() => {
@@ -52,10 +59,18 @@ const ArticleCard = () => {
               votes:&nbsp;
               {article.votes}
             </h3>
+
             {userVoted === false ? (
-              <button id="article_vote_button" onClick={onClick}>
-                Vote
-              </button>
+              <div>
+                {isVotingErr === true ? (
+                  <p>Something went wrong, vote not counted</p>
+                ) : (
+                  ""
+                )}
+                <button id="article_vote_button" onClick={onClick}>
+                  Vote
+                </button>
+              </div>
             ) : (
               <p>thanks for voting!</p>
             )}
