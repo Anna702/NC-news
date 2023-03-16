@@ -3,8 +3,9 @@ import { getComments } from "./api";
 
 const Comments = (props) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [comments, setComments] = useState([]);
   const article_id = props.article_id;
+  const comments = props.comments;
+  const setComments = props.setComments;
 
   useEffect(() => {
     setIsLoading(true);
@@ -12,7 +13,7 @@ const Comments = (props) => {
       setComments(comments);
       setIsLoading(false);
     });
-  }, [article_id]);
+  }, [article_id, setComments]);
 
   return (
     <main className="Comments">
