@@ -3,12 +3,27 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "./api";
 import PostAComment from "./PostAComment";
 import Comments from "./Comments";
-import { Link } from "react-router-dom";
+import { voteForArticle } from "./api";
 
 const ArticleCard = () => {
   const { article_id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [article, setArticle] = useState({});
+  const [userVoted, setUserVoted] = useState(false);
+  const [isVotingErr, setIsVotingErr] = useState(false);
+
+  const onClick = () => {
+    setIsVotingErr(false);
+    setUserVoted(true);
+    voteForArticle(article.article_id)
+      .then((updatedArticle) => {
+        setArticle(updatedArticle);
+      })
+      .catch(() => {
+        setIsVotingErr(true);
+        setUserVoted(false);
+      });
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -40,6 +55,25 @@ const ArticleCard = () => {
               src={article.article_img_url}
             />
             <p id="card_article_body">{article.body}</p>
+            <h3 id="article_votes">
+              votes:&nbsp;
+              {article.votes}
+            </h3>
+
+            {userVoted === false ? (
+              <div>
+                {isVotingErr === true ? (
+                  <p>Something went wrong, vote not counted</p>
+                ) : (
+                  ""
+                )}
+                <button id="article_vote_button" onClick={onClick}>
+                  Vote
+                </button>
+              </div>
+            ) : (
+              <p>thanks for voting!</p>
+            )}
           </div>
           <PostAComment article_id={article.article_id} />
           <Comments article_id={article.article_id} />
