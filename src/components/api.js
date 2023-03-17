@@ -44,3 +44,9 @@ export const postComment = (article_id, newComment) => {
       return data.comment;
     });
 };
+
+export const getTopics = () => {
+  return articlesApi.get(`/topics`).then(({ data }) => {
+    return data.topics;
+  });
+};
