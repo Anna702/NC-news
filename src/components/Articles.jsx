@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { getArticles } from "./api";
 import { Link } from "react-router-dom";
 import ArticlesFilter from "./ArticlesFilter";
