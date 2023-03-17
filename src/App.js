@@ -6,6 +6,8 @@ import SelectAuthor from "./components/SelectAuthor";
 import SelectTopic from "./components/SelectTopic";
 import { Route, Routes } from "react-router-dom";
 import Comments from "./components/Comments";
+import Topics from "./components/Topics";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
         <Route path="/articles" element={<Articles />} />
         <Route path="/articles/:article_id" element={<ArticleCard />} />
         <Route path="/articles/:article_id/comments" element={<Comments />} />
+        <Route path="/topics" element={<Topics />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

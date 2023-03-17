@@ -25,13 +25,14 @@
   padding: 0.1%;
 }
 .Nav {
-  display: flex;
-  flex-direction: column;
-}
-.Nav h2 {
-  width: 50%;
-  display: inline-flex;
-  padding-left: 15px;
+  display: grid;
+  grid-template-areas:
+    "label_username input_username"
+    "label_textarea"
+    "newComment"
+    "button_new_comment";
+  grid-template-rows: 50px;
+  grid-template-columns: 1fr 1fr;
 }
 
 #article_card_img {
@@ -221,8 +222,6 @@
     "button_new_comment";
   grid-template-rows: 30px auto 40px;
   grid-template-columns: 100px auto;
-  /* margin-right: 20px;
-  margin-bottom: 15px; */
 }
 
 .form_container {
@@ -276,3 +275,53 @@
     margin-right: auto;
   }
 }
+
+#topics_header {
+  padding: 1%;
+  background-color: #a11232;
+  color: aliceblue;
+  font-weight: bolder;
+  border-radius: 4px;
+  margin-bottom: 1px;
+}
+
+.topics {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.li_topics {
+  list-style-type: none;
+  background-color: white;
+  border-radius: 8px;
+  padding: 6px;
+  margin: 10px;
+}
+
+.topics_list {
+  padding: 10px;
+  text-align: start;
+  margin-top: 1px;
+}
+
+#topics_header {
+  margin-bottom: 0px;
+}
+
+/* #select_topic {
+} */
+
+/* .custom-select {
+  position: relative;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+} */
