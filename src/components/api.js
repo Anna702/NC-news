@@ -33,3 +33,14 @@ export const voteForArticle = (article_id) => {
       return data.article;
     });
 };
+
+export const postComment = (article_id, newComment) => {
+  return articlesApi
+    .post(`/articles/${article_id}/comments`, {
+      username: newComment.username,
+      body: newComment.body,
+    })
+    .then(({ data }) => {
+      return data.comment;
+    });
+};

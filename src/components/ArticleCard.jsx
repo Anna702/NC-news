@@ -11,6 +11,7 @@ const ArticleCard = () => {
   const [article, setArticle] = useState({});
   const [userVoted, setUserVoted] = useState(false);
   const [isVotingErr, setIsVotingErr] = useState(false);
+  const [comments, setComments] = useState([]);
 
   const onClick = () => {
     setIsVotingErr(false);
@@ -75,8 +76,16 @@ const ArticleCard = () => {
               <p>thanks for voting!</p>
             )}
           </div>
-          <PostAComment article_id={article.article_id} />
-          <Comments article_id={article.article_id} />
+          <PostAComment
+            article_id={article.article_id}
+            setComments={setComments}
+            comments={comments}
+          />
+          <Comments
+            article_id={article.article_id}
+            comments={comments}
+            setComments={setComments}
+          />
         </div>
       )}
     </main>

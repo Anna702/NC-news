@@ -13,6 +13,11 @@
   border-radius: 4px;
 }
 
+#link_from_header {
+  color: aliceblue;
+  text-decoration: overline;
+}
+
 .footer {
   background-color: #3a4657;
   color: aliceblue;
@@ -87,6 +92,12 @@
     font-size: large;
     padding-right: 15px;
   }
+
+  #card_article_body {
+    text-align: justify;
+    padding: 10px;
+    font-size: larger;
+  }
 }
 
 .card_article {
@@ -132,6 +143,7 @@
   flex-direction: column;
   background-color: #768cac;
   border-radius: 8px;
+  margin-top: 10px;
 }
 
 #comments_header {
@@ -198,4 +210,69 @@
   background-color: rgb(251, 234, 234);
   border-radius: 5px;
   font-weight: bolder;
+}
+
+.comment_adder {
+  display: grid;
+  grid-template-areas:
+    "label_username input_username"
+    "label_textarea"
+    "newComment"
+    "button_new_comment";
+  grid-template-rows: 30px auto 40px;
+  grid-template-columns: 100px auto;
+  /* margin-right: 20px;
+  margin-bottom: 15px; */
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+#button_new_comment {
+  grid-column: 2;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+#comment_error {
+  color: red;
+  font-size: larger;
+  margin-top: 1px;
+  margin-bottom: 20px;
+}
+
+#comment_body {
+  font-size: larger;
+}
+
+#newComment {
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#input_username {
+  border-radius: 5px;
+}
+
+#label_textarea {
+  margin-top: 15px;
+}
+
+#label_username {
+  margin-top: 5px;
+}
+
+@media only screen and (min-width: 540px) {
+  #button_new_comment {
+    grid-column: 2;
+    border-radius: 8px;
+    padding-left: 120px;
+    padding-right: 120px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
