@@ -6,8 +6,8 @@ const ArticlesFilter = (params) => {
   };
 
   return (
-    <div>
-      <h2>Filters</h2>
+    <div className="custom-select">
+      {/* <h2>Filters</h2> */}
       <select id="select_topic" onChange={printEvent}>
         <option value="">select topic</option>
         <option value="coding">Coding</option>
