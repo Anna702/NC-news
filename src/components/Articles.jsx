@@ -7,19 +7,19 @@ import ArticlesFilter from "./ArticlesFilter";
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { article_id } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(
-    (article_id) => {
-      setIsLoading(true);
-      getArticles(article_id).then((articles) => {
-        setArticles(articles);
-        setIsLoading(false);
-      });
-    },
-    [article_id]
-  );
+  useEffect(() => {
+    const params = {};
+    if (!!searchParams.get(`topic`)) {
+      params.topic = searchParams.get(`topic`);
+    }
+    setIsLoading(true);
+    getArticles(params).then((articles) => {
+      setArticles(articles);
+      setIsLoading(false);
+    });
+  }, [searchParams]);
 
   return (
     <main>
@@ -28,7 +28,10 @@ const Articles = () => {
         <p>Loading...</p>
       ) : (
         <div>
-          <ArticlesFilter />
+          <ArticlesFilter
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+          />
           <ul className="articlesList">
             {articles.map((article) => {
               return (

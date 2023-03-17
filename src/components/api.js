@@ -4,10 +4,12 @@ const articlesApi = axios.create({
   baseURL: "https://nc-news-anna702.onrender.com/api",
 });
 
-export const getArticles = () => {
-  return articlesApi.get(`/articles`).then(({ data }) => {
-    return data.articles;
-  });
+export const getArticles = (searchKeys) => {
+  return articlesApi
+    .get(`/articles`, { params: searchKeys })
+    .then(({ data }) => {
+      return data.articles;
+    });
 };
 
 export const getArticleById = (article_id) => {
